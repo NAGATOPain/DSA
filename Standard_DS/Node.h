@@ -1,3 +1,6 @@
+#ifndef DS_NODE
+#define DS_NODE
+
 template <typename T>
 struct Node1{
    T value;
@@ -20,6 +23,7 @@ struct Node2{
       : value(val), pNext(next), pPrev(prev){}
 };
 
+#endif
 
 
 
