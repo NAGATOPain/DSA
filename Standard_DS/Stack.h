@@ -1,13 +1,21 @@
 #ifndef DS_STACK
 #define DS_STACK
 
-#include "Node.h"
+template<typename T>
+struct Node{
+   T value;
+   Node* pNext;
+
+   Node(): pNext(nullptr){}
+   Node(const T& val): value(val), pNext(nullptr){}
+   Node(const T& val, Node* next) : value(val), pNext(next){}
+};
 
 template <class T>
 class Stack{
    
    int size;
-   Node1<T> *pTop;
+   Node<T> *pTop;
 
 public:
    Stack();
@@ -37,7 +45,7 @@ Stack<T>::~Stack(){
 
 template <class T>
 void Stack<T>::push(const T& value){
-   Node1<T>* pNew = new Node1<T>(value, pTop);
+   Node<T>* pNew = new Node<T>(value, pTop);
    pTop = pNew;
    ++size;
 }
@@ -45,7 +53,7 @@ void Stack<T>::push(const T& value){
 template <class T>
 void Stack<T>::pop(){
    if (!isEmpty()){
-      Node1<T>* pTemp = pTop;
+      Node<T>* pTemp = pTop;
       pTop = pTop->pNext;
       delete pTemp;
       --size;
@@ -69,7 +77,7 @@ bool Stack<T>::isEmpty(){
 
 template <class T>
 bool Stack<T>::isFull(){
-   Node1<T>* pNew = new Node1<T>();
+   Node<T>* pNew = new Node<T>();
    if (pNew == nullptr) return true;
    delete pNew;
    return false;
