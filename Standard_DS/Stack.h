@@ -11,7 +11,7 @@ struct Node{
    Node(const T& val, Node* next) : value(val), pNext(next){}
 };
 
-template <class T>
+template <typename T>
 class Stack{
    
    int size;
@@ -32,25 +32,25 @@ public:
    void clear();
 };
 
-template <class T>
+template <typename T>
 Stack<T>::Stack(){
    pTop = nullptr;
    size = 0;
 }
 
-template <class T>
+template <typename T>
 Stack<T>::~Stack(){
    clear();
 }
 
-template <class T>
+template <typename T>
 void Stack<T>::push(const T& value){
    Node<T>* pNew = new Node<T>(value, pTop);
    pTop = pNew;
    ++size;
 }
 
-template <class T>
+template <typename T>
 void Stack<T>::pop(){
    if (!isEmpty()){
       Node<T>* pTemp = pTop;
@@ -60,22 +60,22 @@ void Stack<T>::pop(){
    }
 }
 
-template <class T>
+template <typename T>
 T& Stack<T>::top(){
    return pTop->value;
 }
 
-template <class T>
+template <typename T>
 int Stack<T>::getSize(){
    return size;
 }
 
-template <class T>
+template <typename T>
 bool Stack<T>::isEmpty(){
    return size == 0;
 }
 
-template <class T>
+template <typename T>
 bool Stack<T>::isFull(){
    Node<T>* pNew = new Node<T>();
    if (pNew == nullptr) return true;
@@ -83,7 +83,7 @@ bool Stack<T>::isFull(){
    return false;
 }
 
-template <class T>
+template <typename T>
 void Stack<T>::clear(){
    while (size > 0){
       pop();  
